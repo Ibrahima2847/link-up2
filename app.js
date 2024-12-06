@@ -20,11 +20,10 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.json());
 
 // Routes
-app.use("/utilisateurs", utilisateurRoutes);
-app.use("/contenus", contenuRoutes);
+app.use("/user", utilisateurRoutes);
+app.use("/content", contenuRoutes);
 app.use("/medias", mediaRoutes);
-app.use("/commentaires", commentaireRoutes);
-app.use("/notifications", notificationRoutes);
+
 
 // Lancement du serveur avec synchronisation de la base de données
 (async () => {
