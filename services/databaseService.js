@@ -1,9 +1,8 @@
 const sequelize = require("../models/db");
-const Utilisateur = require("../models/utilisateur");
-const Contenu = require("../models/contenu");
+const Utilisateur = require("../models/user");
+const Contenu = require("../models/content");
 const Media = require("../models/media");
-const Commentaire = require("../models/commentaire");
-const Notification = require("../models/notification");
+const Commentaire = require("../models/comment");
 
 // Relations
 
@@ -22,14 +21,6 @@ Commentaire.belongsTo(Contenu, { foreignKey: "contenu_id", as: "commentContent" 
 // Un utilisateur peut écrire plusieurs commentaires
 Utilisateur.hasMany(Commentaire, { foreignKey: "user_id", as: "userCommentaires" }); // Alias unique : userCommentaires
 Commentaire.belongsTo(Utilisateur, { foreignKey: "user_id", as: "authorCommentaires" }); // Alias unique : authorCommentaires
-
-// Un utilisateur peut recevoir plusieurs notifications
-Utilisateur.hasMany(Notification, { foreignKey: "user_id", as: "receivedNotifications" }); // Alias corrigé : receivedNotifications
-Notification.belongsTo(Utilisateur, { foreignKey: "user_id", as: "recipient" }); // Alias corrigé : recipient
-
-// Une notification peut être liée à un commentaire
-Commentaire.hasOne(Notification, { foreignKey: "commentaire_id", as: "commentNotification" }); // Alias unique : commentNotification
-Notification.belongsTo(Commentaire, { foreignKey: "commentaire_id", as: "associatedComment" }); // Alias unique : associatedComment
 
 // Synchronisation de la base de données
 const synchronizeDatabase = async () => {

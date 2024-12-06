@@ -4,10 +4,10 @@ require("dotenv").config();
 const sequelize = require("./models/db");
 
 // Import des routes
-const utilisateurRoutes = require("./routes/utilisateurRoutes");
-const contenuRoutes = require("./routes/contenuRoutes");
+const utilisateurRoutes = require("./routes/userRoutes");
+const contenuRoutes = require("./routes/contentRoutes");
 const mediaRoutes = require("./routes/mediaRoutes");
-const commentaireRoutes = require("./routes/commentaireRoutes");
+const commentaireRoutes = require("./routes/commentRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 
 // Import du service de synchronisation
@@ -24,7 +24,6 @@ app.use("/utilisateurs", utilisateurRoutes);
 app.use("/contenus", contenuRoutes);
 app.use("/medias", mediaRoutes);
 app.use("/commentaires", commentaireRoutes);
-app.use("/notifications", notificationRoutes);
 
 // Lancement du serveur avec synchronisation de la base de données
 (async () => {

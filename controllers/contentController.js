@@ -1,4 +1,4 @@
-const Contenu = require("../models/contenu");
+const Contenu = require("../models/content");
 const Media = require("../models/media");
 
 exports.createContenuWithMedia = async (req, res) => {

@@ -1,6 +1,6 @@
-const Commentaire = require("../models/commentaire");
-const Contenu = require("../models/contenu");
-const Utilisateur = require("../models/utilisateur");
+const Commentaire = require("../models/comment");
+const Contenu = require("../models/content");
+const Utilisateur = require("../models/user");
 const Notification = require("../models/notification");
 
 exports.addComment = async (req, res) => {
