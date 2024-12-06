@@ -24,6 +24,7 @@ app.use("/utilisateurs", utilisateurRoutes);
 app.use("/contenus", contenuRoutes);
 app.use("/medias", mediaRoutes);
 app.use("/commentaires", commentaireRoutes);
+app.use("/notifications", notificationRoutes);
 
 // Lancement du serveur avec synchronisation de la base de données
 (async () => {
